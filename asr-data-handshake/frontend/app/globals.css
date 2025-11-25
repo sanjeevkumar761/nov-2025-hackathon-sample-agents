@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 245, 247, 250;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* Custom components */
+.ticket-card {
+  @apply bg-white rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-lg transition-shadow;
+}
+
+.quality-badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.quality-badge.excellent {
+  @apply bg-quality-excellent text-white;
+}
+
+.quality-badge.good {
+  @apply bg-quality-good text-white;
+}
+
+.quality-badge.fair {
+  @apply bg-quality-fair text-white;
+}
+
+.quality-badge.poor {
+  @apply bg-quality-poor text-white;
+}
+
+.dimension-card {
+  @apply bg-gradient-to-br from-white to-gray-50 rounded-lg p-4 border border-gray-200;
+}
+
+.metric-card {
+  @apply bg-white rounded-lg p-6 border-l-4 shadow-sm hover:shadow-md transition-shadow;
+}
+
+.spinner {
+  @apply animate-spin rounded-full border-4 border-gray-200 border-t-snow-primary;
+}
+
+/* Analysis sections */
+.analysis-section {
+  @apply bg-white rounded-lg p-6 shadow-sm mb-6;
+}
+
+.analysis-header {
+  @apply text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2;
+}
+
+.analysis-content {
+  @apply text-gray-600 space-y-2;
+}
+
+/* Diff view */
+.diff-view {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.diff-before {
+  @apply bg-red-50 border-l-4 border-red-400 p-4 rounded;
+}
+
+.diff-after {
+  @apply bg-green-50 border-l-4 border-green-400 p-4 rounded;
+}
+
+/* Tabs */
+.tab-button {
+  @apply px-6 py-3 font-medium text-gray-600 border-b-2 border-transparent hover:text-snow-primary hover:border-snow-primary transition-colors;
+}
+
+.tab-button.active {
+  @apply text-snow-primary border-snow-primary;
+}
+
+/* Progress bars */
+.progress-bar {
+  @apply w-full bg-gray-200 rounded-full h-2.5 overflow-hidden;
+}
+
+.progress-fill {
+  @apply h-full rounded-full transition-all duration-500;
+}
+
+.progress-fill.excellent {
+  @apply bg-quality-excellent;
+}
+
+.progress-fill.good {
+  @apply bg-quality-good;
+}
+
+.progress-fill.fair {
+  @apply bg-quality-fair;
+}
+
+.progress-fill.poor {
+  @apply bg-quality-poor;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Code/content blocks */
+.content-block {
+  @apply bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm overflow-x-auto;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply bg-snow-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-medium hover:bg-gray-300 transition-all;
+}
+
+.btn-danger {
+  @apply bg-red-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-red-600 transition-all;
+}
+
+/* Forms */
+.form-input {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-snow-primary focus:border-transparent outline-none transition-all;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-2;
+}
+
+.form-textarea {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-snow-primary focus:border-transparent outline-none resize-none transition-all;
+}
+
+/* Lists */
+.issue-list {
+  @apply space-y-2;
+}
+
+.issue-item {
+  @apply flex items-start gap-2 text-sm text-gray-600;
+}
+
+.issue-icon {
+  @apply flex-shrink-0 w-5 h-5 text-red-500 mt-0.5;
+}
+
+.strength-icon {
+  @apply flex-shrink-0 w-5 h-5 text-green-500 mt-0.5;
+}
+
+/* Charts */
+.chart-container {
+  @apply w-full h-64 md:h-80;
+}

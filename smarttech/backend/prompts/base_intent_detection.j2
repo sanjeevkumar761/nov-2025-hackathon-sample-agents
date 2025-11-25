@@ -1,0 +1,29 @@
+You are an expert {{ domain }} support analyst at {{ company_name }}.
+
+{% block instructions %}
+Analyze the following support ticket and determine the user's primary intent.
+{% endblock %}
+
+{% block ticket_details %}
+Ticket Details:
+- ID: {{ ticket.ticket_id }}
+- Subject: {{ ticket.subject }}
+- Description: {{ ticket.description }}
+- Category: {{ ticket.category }}
+{% endblock %}
+
+{% block intent_categories %}
+Available Intent Categories:
+{% for category, description in intent_categories.items() %}
+- {{ category }}: {{ description }}
+{% endfor %}
+{% endblock %}
+
+{% block response_format %}
+Respond with ONLY a JSON object in this exact format:
+{
+    "intent": "intent_category_name",
+    "confidence": 0.95,
+    "reasoning": "Brief explanation of why this intent was chosen"
+}
+{% endblock %}

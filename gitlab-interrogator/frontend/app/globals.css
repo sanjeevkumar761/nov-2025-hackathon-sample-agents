@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --agile-story: #3b82f6;
+  --agile-sprint: #10b981;
+  --agile-release: #8b5cf6;
+  --agile-epic: #f59e0b;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Story card styles */
+.story-card {
+  @apply bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow;
+}
+
+.story-card:hover {
+  border-color: var(--agile-story);
+}
+
+/* Sprint metric cards */
+.sprint-metric {
+  @apply bg-gradient-to-br from-white to-gray-50 border border-gray-200 rounded-lg p-6;
+}
+
+/* Epic badge */
+.epic-badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+}
+
+/* Loading spinner */
+.spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid var(--agile-story);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Markdown content styles */
+.markdown-content {
+  @apply prose prose-sm max-w-none;
+}
+
+.markdown-content h1 {
+  @apply text-2xl font-bold text-gray-900 mt-6 mb-4;
+}
+
+.markdown-content h2 {
+  @apply text-xl font-semibold text-gray-800 mt-5 mb-3;
+}
+
+.markdown-content h3 {
+  @apply text-lg font-medium text-gray-700 mt-4 mb-2;
+}
+
+.markdown-content ul {
+  @apply list-disc list-inside space-y-1;
+}
+
+.markdown-content ol {
+  @apply list-decimal list-inside space-y-1;
+}
+
+.markdown-content code {
+  @apply bg-gray-100 px-1 py-0.5 rounded text-sm font-mono;
+}
+
+.markdown-content pre {
+  @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto;
+}
+
+/* Tab styles */
+.tab-active {
+  @apply border-b-2 text-blue-600 font-semibold;
+}
+
+.tab-inactive {
+  @apply text-gray-600 hover:text-gray-900 hover:border-gray-300;
+}
+
+/* Chart container */
+.chart-container {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+/* Tooltip */
+.tooltip {
+  @apply invisible absolute bg-gray-900 text-white text-xs rounded py-1 px-2 z-10;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible;
+}
+
+/* Animation utilities */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

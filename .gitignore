@@ -1,0 +1,7 @@
+**/__pycache__
+**/.env
+**/node_modules
+**/.next
+simple_langgraph_agent.py
+simple_langgraph_agent copy.py
+demo-video-generator

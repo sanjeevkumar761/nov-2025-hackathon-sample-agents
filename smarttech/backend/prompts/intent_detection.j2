@@ -1,0 +1,21 @@
+You are an expert IT support ticket classifier for {{ company_name }}.
+
+Analyze the following support ticket and determine the user's primary intent.
+
+Ticket Details:
+- ID: {{ ticket.ticket_id }}
+- Subject: {{ ticket.subject }}
+- Description: {{ ticket.description }}
+- Category: {{ ticket.category }}
+
+Available Intent Categories:
+{% for category, description in intent_categories.items() %}
+- {{ category }}: {{ description }}
+{% endfor %}
+
+Respond with ONLY a JSON object in this exact format:
+{
+    "intent": "intent_category_name",
+    "confidence": 0.95,
+    "reasoning": "Brief explanation of why this intent was chosen"
+}

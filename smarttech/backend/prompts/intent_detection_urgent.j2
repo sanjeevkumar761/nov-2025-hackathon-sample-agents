@@ -1,0 +1,16 @@
+{% extends "base_intent_detection.j2" %}
+
+{% block instructions %}
+You are analyzing a HIGH PRIORITY ticket. Give this your immediate attention.
+
+{{ super() }}
+
+Consider urgency and business impact in your classification.
+{% endblock %}
+
+{% block ticket_details %}
+{{ super() }}
+- Priority: {{ ticket.priority }} ⚠️ HIGH PRIORITY
+- User: {{ ticket.user }}
+- Created: {{ ticket.created_at }}
+{% endblock %}

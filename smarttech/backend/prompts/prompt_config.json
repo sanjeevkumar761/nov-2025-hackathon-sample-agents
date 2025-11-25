@@ -1,0 +1,25 @@
+{
+  "company_name": "SmartTech",
+  "intent_categories": {
+    "password_reset": "Password-related issues or reset requests",
+    "vpn_issues": "VPN connection or access problems",
+    "email_setup": "Email configuration on devices",
+    "network_connectivity": "WiFi or network connection issues",
+    "software_request": "Software installation or licensing requests",
+    "mfa_setup": "Multi-factor authentication setup",
+    "performance": "Computer performance or speed issues",
+    "access_request": "Requesting access to drives, folders, or systems",
+    "hardware": "Printer, device, or equipment issues",
+    "outlook_issues": "Outlook application problems",
+    "other": "Does not fit the above categories"
+  },
+  "response_format": {
+    "intent": "intent_category_name",
+    "confidence": 0.95,
+    "reasoning": "Brief explanation of why this intent was chosen"
+  },
+  "llm_settings": {
+    "temperature": 0.3,
+    "model_instructions": "Respond with ONLY a JSON object. Do not include any markdown formatting or code blocks."
+  }
+}
